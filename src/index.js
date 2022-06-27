@@ -6,7 +6,31 @@
 import './banner';
 import './tabs';
 import $ from 'jquery';
-$('#swiper').css('background-color', 'red')
+$('#swiper').css('background-color', 'red');
 
 import './styles/index.css';
 // import './styles/index.less';
+import imgUrl from './assets/1.gif';
+import './assets/fonts/iconfont.css';
+let img = document.createElement('img');
+img.src = imgUrl;
+document.body.appendChild(img);
+import imgUrl1 from './assets/logo_small.png';
+let img1 = document.createElement('img');
+img1.src = imgUrl1;
+document.body.appendChild(img1);
+// import Vue from 'vue'
+import Vue from '../node_modules/vue/dist/vue.js';
+new Vue({
+    el:'#App',
+    data() {
+        return {
+            msg:'123'
+        }
+    },
+});
+class App {
+  static a = 123;
+}
+
+console.log(App.a);
