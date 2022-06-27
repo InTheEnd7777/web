@@ -3,13 +3,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //插件-自动清除dist目录内容
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   //mode模式解决一下警告
   mode: 'development',
   entry: './src/index.js',
   devServer: {
     port: 3000, // 端口号
-    open: true    //默认打开
+    open: true, //默认打开
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -24,4 +26,17 @@ module.exports = {
     // 删除的是ouput path 里配置的那个输出文件的文件夹
     // 默认情况下dist
   ],
+  module: {
+    // loader 加载器 配置在这儿
+    rules: [
+      // loader的规则
+      {
+        test: /\.css$/, // 匹配所有的css文件
+        // loader 执行的顺序： use数组里从右向左运行
+        // 先用 css-loader 让webpack能够识别 css 文件的内容并打包
+        // 再用 style-loader 将样式, 把css插入到dom中
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 };
