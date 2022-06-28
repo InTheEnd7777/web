@@ -20,17 +20,12 @@ let img1 = document.createElement('img');
 img1.src = imgUrl1;
 document.body.appendChild(img1);
 // import Vue from 'vue'
-import Vue from '../node_modules/vue/dist/vue.js';
-new Vue({
-    el:'#App',
-    data() {
-        return {
-            msg:'123'
-        }
-    },
-});
-class App {
+import { createApp } from 'vue';
+import App from './app.vue'
+const app = createApp(App);
+app.mount('#app');
+class zzz {
   static a = 123;
 }
 
-console.log(App.a);
+console.log(zzz.a);
